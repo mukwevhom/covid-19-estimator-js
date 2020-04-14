@@ -10,20 +10,20 @@ const covid19ImpactEstimator = (data) => {
   let impact = {};
   let severeImpact = {};
   let factor = 0;
-  let dy = 0;
+  let days = 0;
 
   if (data.periodType === 'months') {
     const monthsToDays = timeToElapse * 30;
-    dy = monthsToDays;
+    days = monthsToDays;
 
     factor = Math.floor(monthsToDays / 3);
   } else if (periodType === 'weeks') {
     const weeksToDays = timeToElapse * 7;
-    dy = weeksToDays;
+    days = weeksToDays;
 
     factor = Math.floor(weeksToDays / 3);
   } else {
-    dy = timeToElapse;
+    days = timeToElapse;
     factor = Math.floor(timeToElapse / 3);
   }
 
@@ -36,7 +36,7 @@ const covid19ImpactEstimator = (data) => {
   const iCasesForICUByRequestedTime = Math.floor(iInfectionsByRequestedTime * 0.05);
   const iCasesForVentilatorsByRequestedTime = Math.floor(iInfectionsByRequestedTime * 0.02);
   const iDollarsInFlight = Math.floor(
-    (iInfectionsByRequestedTime * region.avgDailyIncomeInUSD * region.avgDailyIncomePopulation) / dy
+    (iInfectionsByRequestedTime * avgDailyIncomeInUSD * avgDailyIncomePopulation) / days
   );
 
   impact = {
@@ -58,7 +58,7 @@ const covid19ImpactEstimator = (data) => {
   const sIcasesForICUByRequestedTime = Math.floor(sIInfectionsByRequestedTime * 0.05);
   const sIcasesForVentilatorsByRequestedTime = Math.floor(sIInfectionsByRequestedTime * 0.02);
   const sIdollarsInFlight = Math.floor(
-    (sIInfectionsByRequestedTime * avgDailyIncomeInUSD * avgDailyIncomePopulation) / dy
+    (sIInfectionsByRequestedTime * avgDailyIncomeInUSD * avgDailyIncomePopulation) / days
   );
 
   severeImpact = {
