@@ -40,13 +40,13 @@ const covid19ImpactEstimator = (data) => {
   );
 
   impact = {
-    iCurrentlyInfected,
-    iInfectionsByRequestedTime,
-    iSevereCasesByRequestedTime,
-    iHospitalBedsByRequestedTime,
-    iCasesForICUByRequestedTime,
-    iCasesForVentilatorsByRequestedTime,
-    iDollarsInFlight
+    currentlyInfected: iCurrentlyInfected,
+    infectionsByRequestedTime: iInfectionsByRequestedTime,
+    severeCasesByRequestedTime: iSevereCasesByRequestedTime,
+    hospitalBedsByRequestedTime: iHospitalBedsByRequestedTime,
+    casesForICUByRequestedTime: iCasesForICUByRequestedTime,
+    casesForVentilatorsByRequestedTime: iCasesForVentilatorsByRequestedTime,
+    dollarsInFlight: iDollarsInFlight
   };
 
   const sICurrentlyInfected = reportedCases * 50;
@@ -62,13 +62,13 @@ const covid19ImpactEstimator = (data) => {
   );
 
   severeImpact = {
-    sICurrentlyInfected,
-    sIInfectionsByRequestedTime,
-    sISevereCasesByRequestedTime,
-    sIHospitalBedsByRequestedTime,
-    sIcasesForICUByRequestedTime,
-    sIcasesForVentilatorsByRequestedTime,
-    sIdollarsInFlight
+    currentlyInfected: sICurrentlyInfected,
+    infectionsByRequestedTime: sIInfectionsByRequestedTime,
+    severeCasesByRequestedTime: sISevereCasesByRequestedTime,
+    hospitalBedsByRequestedTime: sIHospitalBedsByRequestedTime,
+    casesForICUByRequestedTime: sIcasesForICUByRequestedTime,
+    casesForVentilatorsByRequestedTime: sIcasesForVentilatorsByRequestedTime,
+    dollarsInFlight: sIdollarsInFlight
   };
 
   return { data, impact, severeImpact };
